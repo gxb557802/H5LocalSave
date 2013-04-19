@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+	<head>
+		<title>输入帮助</title>
+		<link href="imgs/title.png" rel="icon" type="image/x-icon">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet"/>
+
+		<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap-typeahead.js"></script>
+		<script src="js/checkall.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container" style="width: auto;margin-top: 12px;" >
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <a class="brand" href=""><FONT face="Script MT Bold" color=#234234 size=5>InputHelp</FONT></a>
+					<div class="nav-collapse">
+						<ul class="nav nav-pills">
+							<li class="dropdown" id="menutest1">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"><font>助记码管理</font><b class="caret"></b> </a>
+								<ul class="dropdown-menu">
+									<li>
+										<a data-toggle="modal" href="#AddMnemonic"><font>Add</font></a>
+									</li>
+									<li>
+										<a href="#"><font>Update</font></a>
+									</li>
+									<li class="dropdown-submenu" >
+										<a tabindex="-1" href="#"><font>Delete</font></a>
+										<ul class="dropdown-menu" >
+											<li>
+												<a href="#"><font>Input</font></a>
+											</li>
+											<li>
+												<a href="#"><font>Select</font></a>
+											</li>
+											<li>
+												<a href="#"><font>Batch</font></a>
+											</li>
+										</ul>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="#DisplayMnemonic" data-toggle="modal"><font>Display</font></a>
+									</li>
+								</ul>
+							</li>
+
+							<li class="dropdown" id="menutest2" >
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest2"><font>词库管理</font><b class="caret"></b> </a>
+								<ul class="dropdown-menu">
+									<li>
+										<a data-toggle="modal" href="#AddEntry"><font>Add</font></a>
+									</li>
+									<li>
+										<a href="#"><font>Update</font></a>
+									</li>
+									<li class="dropdown-submenu">
+										<a tabindex="-1"  href="#"><font>Delete</font></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#"><font>Input</font></a>
+											</li>
+											<li>
+												<a href="#"><font>Select</font></a>
+											</li>
+											<li>
+												<a href="#"><font>Batch</font></a>
+											</li>
+										</ul>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="#"><font>Display</font></a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div align="right" class="inputs">
+						<div class="input-prepend input-append">
+							<span class="add-on"><font>快速通道</font></span>
+							<input type="text" data-provide="typeahead">
+							<span class="add-on"> <a class="btn btn-inverse btn-mini">进入</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 添加助记码开始 -->
+		<div class="span9 columns">
+			<!-- sample modal content -->
+			<div id="AddMnemonic" class="modal hide fade">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal" >&nbsp;&times;&nbsp;</a>
+					<h4>添加助记码</h4>
+				</div>
+				<div align="center" class="model-body" style="margin-top: 15px;">
+					<form class="form-horizontal">
+						<div class="input-prepend " align="center">
+							<span class="add-on" ><font>Key&nbsp;&nbsp;：</font></span>
+							<input class="span2" id="prependedInput" type="text" placeholder="助记码" maxlength="30">
+						</div>
+						<br />
+						<div class="input-prepend " style="margin-top: 20px;">
+							<span class="add-on"><font>Value：</font></span>
+							<input class="span2" type="text"  id="prependedInput" placeholder="助记文字" maxlength="30">
+						</div>
+						<br />
+						<div class="input-prepend"  style="margin-top: 20px;" >
+							<div class="controls" align="right">
+								<button type="submit"  class="btn btn-inverse" id="submit">
+									Add
+								</button>
+								<!-- <a href="#" class="btn btn-info" data-dismiss="modal" >关闭</a> -->
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- 添加助记码结束 -->
+			
+			<!-- 添加词条开始  -->
+			<div id="AddEntry" class="modal hide fade">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal" >&nbsp;&times;&nbsp;</a>
+					<h5>添加词条</h5>
+				</div>
+				<div align="center" class="model-body" style="margin-top: 15px;">
+					<div class="input-prepend " align="center">
+						<span class="add-on" ><font>Key：</font></span>
+						<input class="span2" id="prependedInput" type="text" placeholder="词条码" maxlength="30">
+						<span class="add-on"> <a class="btn btn-inverse btn-mini" href="#">Add</a></span>
+					</div>
+					<br />
+				</div>
+				
+			</div>
+			<!-- 添加词条结束  -->
+			
+			<!-- 显示助记码开始 -->
+			<div id="DisplayMnemonic" class="modal hide fade">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal" >&nbsp;&times;&nbsp;</a>
+					<h5>助记码列表</h5>
+				</div>
+				<!-- 窗体 -->
+				<div align="center" class="model-body" style="margin-top: 15px;width: auto;">
+					<table class="table table-bordered table-hover table-condensed" style="width: 90%;" >
+						<thead style="background-color: #547987">
+							<th field="check">
+								<input onclick="if(this.checked==true) { checkAll('test'); } else { clearAll('test'); }"
+										type="checkbox" value="" name="test" title="全选/取消"/>
+							</th>
+							<th>Key</th>
+							<th>Value</th>
+						</thead>
+							<tr class="success">
+								<td>
+									<input type="checkbox" value="a" id="test"/>
+								</td>
+								<td>zs</td>
+								<td>张三</td>
+							</tr>
+							<tr class="success">
+								<td>
+									<input type="checkbox" value="a" id="test"/>
+								</td>
+								<td>ls</td>
+								<td>李四</td>
+							</tr>
+							<tr class="success">
+								<td>
+									<input type="checkbox" value="a" id="test"/>
+								</td>
+								<td>sz</td>
+								<td>深圳</td>
+							</tr>
+							<tr class="success">
+								<td>
+									<input type="checkbox" value="a" id="test"/>
+								</td>
+								<td>sz</td>
+								<td>数组</td>
+							</tr>
+							<tr class="success">
+								<td>
+									<input type="checkbox" value="a" id="test"/>
+								</td>
+								<td>sz</td>
+								<td>宿主</td>
+							</tr><br /><tr class="success">
+								<td>
+									<input type="checkbox" value="a" id="test"/>
+								</td>
+								<td>sz</td>
+								<td>撒种</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+				<!-- 窗体 -->
+				<div class="modal-footer">
+					<td>
+						<a class="btn btn-info btn-mini">详情</a>
+						<a class="btn btn-danger btn-mini">修改</a>
+						<a class="btn btn-danger btn-mini">删除</a>
+					</td>
+					<a href="#">首页</a>
+					<a href="#">上一页</a>
+					<a href="#">下一页</a>
+					<a href="#">尾页</a>
+				</div>
+			</div>
+			<!-- 显示助记码结束 -->
+			
+			<!-- 显示词条开始 -->
+			
+			<!-- 显示词条结束 -->
+			
+		</div>
+		
+		
+		
+	</body>
+</html>
