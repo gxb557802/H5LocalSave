@@ -10,10 +10,14 @@
 		<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet"/>
 
+		
 		<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-		<script src="lib/bootstrap/js/bootstrap-typeahead.js"></script>
-		<script src="js/checkall.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap-typeahead.js"></script>
+		<script type="text/javascript" src="js/checkall.js"></script>
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/ls.js"></script>
+		
 	</head>
 	<body>
 		<div class="navbar navbar-fixed-top">
@@ -38,7 +42,7 @@
 												<a href="#"><font>Input</font></a>
 											</li>
 											<li>
-												<a href="#"><font>Select</font></a>
+												<a href="#Q_Mnemonic" id=""><font>Select</font></a>
 											</li>
 											<li>
 												<a href="#"><font>Batch</font></a>
@@ -47,7 +51,7 @@
 									</li>
 									<li class="divider"></li>
 									<li>
-										<a href="#DisplayMnemonic" data-toggle="modal"><font>Display</font></a>
+										<a href="#DisplayMnemonic" data-toggle="modal" id="Q_Mnemonic"><font>Display</font></a>
 									</li>
 								</ul>
 							</li>
@@ -86,14 +90,13 @@
 					<div align="right" class="inputs">
 						<div class="input-prepend input-append">
 							<span class="add-on"><font>快速通道</font></span>
-							<input type="text" data-provide="typeahead">
+							<input type="text" data-provide="typeahead" autocomplete="off">
 							<span class="add-on"> <a class="btn btn-inverse btn-mini">进入</a></span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 		<!-- 添加助记码开始 -->
 		<div class="span9 columns">
 			<!-- sample modal content -->
@@ -102,16 +105,16 @@
 					<a class="close" data-dismiss="modal" >&nbsp;&times;&nbsp;</a>
 					<h4>添加助记码</h4>
 				</div>
-				<div align="center" class="model-body" style="margin-top: 15px;">
+				<div id="addbody" align="center" class="model-body" style="margin-top: 15px;">
 					<form class="form-horizontal">
 						<div class="input-prepend " align="center">
 							<span class="add-on" ><font>Key&nbsp;&nbsp;：</font></span>
-							<input class="span2" id="prependedInput" type="text" placeholder="助记码" maxlength="30">
+							<input class="span2" id="ls_key" type="text" value="助记码" maxlength="30"/>
 						</div>
 						<br />
 						<div class="input-prepend " style="margin-top: 20px;">
 							<span class="add-on"><font>Value：</font></span>
-							<input class="span2" type="text"  id="prependedInput" placeholder="助记文字" maxlength="30">
+							<input class="span2" type="text" id="ls_value" value="助记词" maxlength="30"/>
 						</div>
 						<br />
 						<div class="input-prepend"  style="margin-top: 20px;" >
