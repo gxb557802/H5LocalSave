@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="utf-8">
 	<head>
 		<title>输入帮助</title>
+		
 		<link href="imgs/title.png" rel="icon" type="image/x-icon">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -16,7 +19,7 @@
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap-typeahead.js"></script>
 		<script type="text/javascript" src="js/checkall.js"></script>
 		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
-		<script type="text/javascript" src="js/ls.js"></script>
+		<script type="text/javascript" src="js/ls_mnemonic.js"></script>
 		
 	</head>
 	<body>
@@ -45,7 +48,10 @@
 												<a href="#Q_Mnemonic" id=""><font>Select</font></a>
 											</li>
 											<li>
-												<a href="#"><font>Batch</font></a>
+												<a href="#" id="Batch_Del_Mnemonic"><font>Batch</font></a>
+											</li>
+											<li>
+												<a href="#" id="Clear_Mnemonic"><font>Clear</font></a>
 											</li>
 										</ul>
 									</li>
@@ -108,19 +114,19 @@
 				<div id="addbody" align="center" class="model-body" style="margin-top: 15px;">
 					<form class="form-horizontal">
 						<div class="input-prepend " align="center">
-							<span class="add-on" ><font>Key&nbsp;&nbsp;：</font></span>
-							<input class="span2" id="ls_key" type="text" value="助记码" maxlength="30"/>
+							<span class="add-on" ><font>Key&nbsp;&nbsp;&nbsp;：</font></span>
+							<input class="span2" id="ls_key" type="text" maxlength="30"/>
 						</div>
 						<br />
 						<div class="input-prepend " style="margin-top: 20px;">
 							<span class="add-on"><font>Value：</font></span>
-							<input class="span2" type="text" id="ls_value" value="助记词" maxlength="30"/>
+							<input class="span2" type="text" id="ls_value" maxlength="30"/>
 						</div>
 						<br />
 						<div class="input-prepend"  style="margin-top: 20px;" >
 							<div class="controls" align="right">
-								<button type="submit"  class="btn btn-inverse" id="submit">
-									Add
+								<button type="submit"  class="btn btn-inverse" id="add">
+									添加
 								</button>
 								<!-- <a href="#" class="btn btn-info" data-dismiss="modal" >关闭</a> -->
 							</div>
@@ -149,78 +155,31 @@
 			<!-- 添加词条结束  -->
 			
 			<!-- 显示助记码开始 -->
-			<div id="DisplayMnemonic" class="modal hide fade">
+			<div id="DisplayMnemonic" class="modal hide fade" aria-hidden="true" role="dialog" style="height: 400px;">
 				<div class="modal-header">
 					<a class="close" data-dismiss="modal" >&nbsp;&times;&nbsp;</a>
 					<h5>助记码列表</h5>
 				</div>
-				<!-- 窗体 -->
-				<div align="center" class="model-body" style="margin-top: 15px;width: auto;">
-					<table class="table table-bordered table-hover table-condensed" style="width: 90%;" >
-						<thead style="background-color: #547987">
-							<th field="check">
-								<input onclick="if(this.checked==true) { checkAll('test'); } else { clearAll('test'); }"
-										type="checkbox" value="" name="test" title="全选/取消"/>
-							</th>
-							<th>Key</th>
-							<th>Value</th>
-						</thead>
-							<tr class="success">
-								<td>
-									<input type="checkbox" value="a" id="test"/>
-								</td>
-								<td>zs</td>
-								<td>张三</td>
-							</tr>
-							<tr class="success">
-								<td>
-									<input type="checkbox" value="a" id="test"/>
-								</td>
-								<td>ls</td>
-								<td>李四</td>
-							</tr>
-							<tr class="success">
-								<td>
-									<input type="checkbox" value="a" id="test"/>
-								</td>
-								<td>sz</td>
-								<td>深圳</td>
-							</tr>
-							<tr class="success">
-								<td>
-									<input type="checkbox" value="a" id="test"/>
-								</td>
-								<td>sz</td>
-								<td>数组</td>
-							</tr>
-							<tr class="success">
-								<td>
-									<input type="checkbox" value="a" id="test"/>
-								</td>
-								<td>sz</td>
-								<td>宿主</td>
-							</tr><br /><tr class="success">
-								<td>
-									<input type="checkbox" value="a" id="test"/>
-								</td>
-								<td>sz</td>
-								<td>撒种</td>
-							</tr>
-							
-						</tbody>
+				<div class="model-body" align="center">
+					<table class="table table-bordered table-hover table-condensed" style="width: 90%;">
+						
+						
 					</table>
 				</div>
-				<!-- 窗体 -->
 				<div class="modal-footer">
+					<a href="#">首页</a>
+					<a href="#" id="descPageNo">上一页</a>
+					<a href="#" id="ascPageNo">下一页</a>
+					<a href="#">尾页</a>
 					<td>
 						<a class="btn btn-info btn-mini">详情</a>
 						<a class="btn btn-danger btn-mini">修改</a>
-						<a class="btn btn-danger btn-mini">删除</a>
+						<a class="btn btn-danger btn-mini" id="Del_Mnemonic">删除</a>
 					</td>
-					<a href="#">首页</a>
-					<a href="#">上一页</a>
-					<a href="#">下一页</a>
-					<a href="#">尾页</a>
+
+					<button class="btn" data-dismiss="modal">
+						关闭
+					</button>
 				</div>
 			</div>
 			<!-- 显示助记码结束 -->

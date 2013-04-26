@@ -7,9 +7,11 @@ function selectAll() {
 }
 
 function checkAll(id) {
+	alert(id);
 	var el = document.getElementsByTagName('input');
 	var len = el.length;
-	for (var i = 0; i < len; i++) {
+	var i;
+	for (i = 0; i < len; i++) {
 		if ((el[i].type == "checkbox") && (el[i].id == id)) {
 			el[i].checked = true;
 		}
@@ -19,7 +21,8 @@ function checkAll(id) {
 function clearAll(id) {
 	var el = document.getElementsByTagName('input');
 	var len = el.length;
-	for (var i = 0; i < len; i++) {
+	var i;
+	for (i = 0; i < len; i++) {
 		if ((el[i].type == "checkbox") && (el[i].id == id)) {
 			el[i].checked = false;
 		}
